@@ -1,0 +1,61 @@
+﻿<Window x:Class="Warder.Forms.Access_Сontrol"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Warder.Forms"
+        mc:Ignorable="d"
+        Title="Access_Сontrol" Height="380" Width="780" MinWidth="780" MinHeight="380">
+    <Grid x:Name="form">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Bottom">
+            <TextBlock x:Name="txtUser" TextAlignment="Right" />
+            <Border Height="8" Background="Black" BorderThickness="2"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <StackPanel Margin="0,30,0,00" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock Height="22" Margin="0,8" Text="Фамилия"/>
+                        <TextBlock Height="22" Margin="0,8" Text="Имя"/>
+                        <TextBlock Height="22" Margin="0,8" Text="Отчество"/>
+                        <TextBlock Height="22" Margin="0,8" Text="Пол"/>
+                        <TextBlock Height="22" Margin="0,8" Text="Должность"/>
+                    </StackPanel>
+                    <StackPanel Margin="40,0,0,0" Width="200" Grid.Column="1">
+                        <TextBox Height="22" Margin="0,8" Text="{Binding LastName}"/>
+                        <TextBox Height="22" Margin="0,8" Text="{Binding FirstName}"/>
+                        <TextBox Height="22" Margin="0,8" Text="{Binding Patronymic}"/>
+                        <ComboBox x:Name="cmbGender" Width="40" HorizontalAlignment="Left" Height="22" Margin="0,8" SelectionChanged="cmbGender_SelectionChanged" >
+                            <ComboBoxItem Tag="М">
+                                <TextBlock Text="М" Tag="М"/>
+                            </ComboBoxItem>
+                            <ComboBoxItem Tag="Ж">
+                                <TextBlock Text="Ж" Tag="Ж"/>
+                            </ComboBoxItem>
+                        </ComboBox>
+                        <TextBox x:Name="txtPost" Height="22" Margin="0,8" Text=""/>
+                    </StackPanel>
+                    <StackPanel Margin="30,0,0,0" Grid.Column="2">
+                        <Border BorderBrush="Black" BorderThickness="2" Margin="0,8">
+                            <Image x:Name="imgNewUser" Height="100" Width="100"/>
+                        </Border>
+                        <Button Content="Загрузить фото" Background="Transparent" x:Name="btnAddPhoto" Click="btnAddPhoto_Click" BorderThickness="0"/>
+                    </StackPanel>
+                </Grid>
+                <StackPanel Margin="0,20,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button x:Name="btnSave" Width="80" Height="30" Content="Сохранить" Click="btnSave_Click"/>
+                    <Button x:Name="btnClose" Width="80" Height="30" Margin="20,0,10,0" Content="Отменить" Click="btnClose_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
